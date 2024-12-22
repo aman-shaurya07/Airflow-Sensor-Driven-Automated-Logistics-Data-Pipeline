@@ -1,0 +1,15 @@
+### IAM Roles Required ###
+1. roles/dataproc.editor
+   - Full control of Dataproc clusters, jobs, and configurations.
+2. roles/storage.objectAdmin
+   - Full control of objects in Google Cloud Storage (GCS).
+3. roles/airflow.admin
+   - Full control of Airflow environments and DAGs.
+4. roles/iam.serviceAccountUser
+   - Required for Dataproc to access GCS and execute Hive jobs.
+
+### Assigning IAM Roles ###
+Use the following command to assign roles to your service account:
+gcloud projects add-iam-policy-binding <PROJECT_ID> \
+    --member="serviceAccount:<SERVICE_ACCOUNT>" \
+    --role=<ROLE_NAME>
